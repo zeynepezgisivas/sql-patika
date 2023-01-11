@@ -88,3 +88,20 @@ SELECT *FROM film
 WHERE title LIKE 'B%'
 ORDER BY length DESC
 LIMIT 10;
+
+Bu operatör istenilen koşulları sağlayan verilerin tamamı değil, belirli sayıda olanlar sıralanmak istenirse kullanılır.
+Yukarıdaki sorguda da görüldüğü gibi önce koşullamayı, sonra gruplamayı, en son ise LIMIT kullanılarak istenilen veri sayısı belirtilir.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
++ OFFSET operatörü ;
+
+SELECT *FROM film
+WHERE title LIKE 'B%'
+ORDER BY length DESC
+OFFSET 6
+LIMIT 4;
+
+Yukarıdaki sorguda film tablosunda B ile başlayan filmler uzunluklarına göre sıralanırken, en uzun 6 film pass geçilip sonrasındaki 4 film sıralanır.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
++
