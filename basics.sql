@@ -43,7 +43,7 @@ LIKE operatörünün case - insensitive versiyonudur.
 
 SELECT DISTINCT rental_rate FROM film;
 
-Bu operatör istenilen sütunda/sütunlarda birbirini tekrar eden veriler görünmek istenmediğinde kullanılır.
+Bu operatör istenilen sütunda/sütunlarda birbirini tekrar eden veriler görülmek istenmediğinde kullanılır.
 Yani bir sütun içerisinde bulunan farklı değerleri gösterir.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
