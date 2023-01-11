@@ -31,8 +31,7 @@ SELECT *FROM actor
 WHERE first_name LIKE 'J_';
 
 Yani 'Penelope' gibi tam eşleşme değil, belirli şablonlara uyan koşulların sağlanması istendiğinde LIKE operatörünü kullanılır.
-Burada kullanılan % karakteri 0, 1 veya daha fazla karakteri temsil eder. 
-_ karakteri ise sadece 1 karakteri temsil eder.
+Burada kullanılan % karakteri 0, 1 veya daha fazla karakteri temsil eder. _ karakteri ise sadece 1 karakteri temsil eder.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 + ILIKE operatörü ;
