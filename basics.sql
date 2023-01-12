@@ -129,4 +129,36 @@ FROM film;
 MIN fonksiyonunu kullanılan sayısal değerlerden oluşan sütunun en düşük değerini alır.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
-+GROUP BY 
++ GROUP BY operatörü ;
+
+Sorgular yapılırken genel olarak tüm veri kümesinin tamamı üzerine düşündük ancak bazen aynı sonuçlar veri kümesinin içerisinde bulunan farklı gruplarda da bulmak istenebilir.
+Örneğin dvdrental veritabanında rental_rate sütununda bizim 3 farklı değer var(0.99, 2.99, 4.99). Bu 3 farklı değer için en uzun filmi bulmaya çalışalım;
+
+SELECT MAX(length) 
+FROM film
+WHERE rental_rate = 0.99;
+SELECT MAX(length) 
+FROM film
+WHERE rental_rate = 2.99;
+SELECT MAX(length) 
+FROM film
+WHERE rental_rate = 4.99;
+
+İstenilen sonuçlar elde edilir ancak şöyle bir sorun var: 3 farklı değer yerine 30 farklı değer olsaydı? 
+İşte bu şekilde senaryolar için, yani verileri gruplama için GROUP BY anahtar kelimesi kullanılır.
+
+SELECT rental_rate, MAX(length) 
+FROM film
+GROUP BY rental_rate;
+
+
+SELECT anahtar kelimesinde bulunan sütunların, GROUP BY anahtar kelimesi içerisinde bulunması gerekir.
+Özetle GROUP BY operatörü söz dizimi aşağıdaki gibidir ;
+
+SELECT <sütun_adı>, <sütun_adı>, ... (veya aggregate func)
+FROM <tablo_adı>
+GROUP BY <sütun_adı>, <sütun_adı>, ...
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
++ HAVING operatörü ;
+
