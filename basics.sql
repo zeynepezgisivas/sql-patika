@@ -167,5 +167,5 @@ SELECT <sütun_adı> AS <geçici_ad> FROM <tablo_adı>;
 
 SELECT <sütun_adı>, <sütun_adı>... FROM <tablo_adı> AS <geçici_ad>;
 
-AS operatörü ile sorgular sonucu oluşturulan sanal tablo ve sütunlara geçici isimler verilebilir.
+Bu operatörle sorgular sonucu oluşturulan sanal tablo ve sütunlara geçici isimler verilebilir.
 
