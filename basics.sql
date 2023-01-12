@@ -103,4 +103,8 @@ LIMIT 4;
 Yukarıdaki sorguda film tablosunda B ile başlayan filmler uzunluklarına göre sıralanırken, en uzun 6 film pass geçilip sonrasındaki 4 film sıralanır.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
-+
++ Aggregate Funcs: MIN, MAX, SUM, AVG ;
+
+Aggregate fonksiyonları ile "Toplam kaç adet müşterimiz var? Elimizde bulunan filmlerin ortalama uzunluğu nedir?" gibi sorulara veri kümelerimizden sonuçlar çıkararak cevap buluruz.
+Yani bu fonksiyonlar belirli veri kümelerinden tek bir sonuç çıkartırlar.
+
