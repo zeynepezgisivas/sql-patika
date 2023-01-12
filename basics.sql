@@ -108,23 +108,19 @@ Yukarıdaki sorguda film tablosunda B ile başlayan filmler uzunluklarına göre
 Aggregate fonksiyonları ile "Toplam kaç adet müşterimiz var? Elimizde bulunan filmlerin ortalama uzunluğu nedir?" gibi sorulara veri kümelerimizden sonuçlar çıkararak cevap buluruz.
 Yani bu fonksiyonlar belirli veri kümelerinden tek bir sonuç çıkartırlar.
 
-SELECT AVG(length) 
-FROM film;
+SELECT AVG(length) FROM film;
 
 AVG fonksiyonunu kullanılan sayısal değerlerden oluşan sütunun ortalama değerini alır.
 
-SELECT SUM(length) 
-FROM film;
+SELECT SUM(length) FROM film;
 
 SUM fonksiyonunu kullanılan sayısal değerlerden oluşan sütunun toplam değerini alır.
 
-SELECT MAX(length) 
-FROM film;
+SELECT MAX(length) FROM film;
 
 MAX fonksiyonunu kullanılan sayısal değerlerden oluşan sütunun en yüksek değerini alır.
  
-SELECT MIN(length) 
-FROM film; 
+SELECT MIN(length) FROM film; 
  
 MIN fonksiyonunu kullanılan sayısal değerlerden oluşan sütunun en düşük değerini alır.
 
@@ -134,31 +130,42 @@ MIN fonksiyonunu kullanılan sayısal değerlerden oluşan sütunun en düşük 
 Sorgular yapılırken genel olarak tüm veri kümesinin tamamı üzerine düşündük ancak bazen aynı sonuçlar veri kümesinin içerisinde bulunan farklı gruplarda da bulmak istenebilir.
 Örneğin dvdrental veritabanında rental_rate sütununda bizim 3 farklı değer var(0.99, 2.99, 4.99). Bu 3 farklı değer için en uzun filmi bulmaya çalışalım;
 
-SELECT MAX(length) 
-FROM film
+SELECT MAX(length) FROM film
 WHERE rental_rate = 0.99;
-SELECT MAX(length) 
-FROM film
+SELECT MAX(length) FROM film
 WHERE rental_rate = 2.99;
-SELECT MAX(length) 
-FROM film
+SELECT MAX(length) FROM film
 WHERE rental_rate = 4.99;
 
 İstenilen sonuçlar elde edilir ancak şöyle bir sorun var: 3 farklı değer yerine 30 farklı değer olsaydı? 
 İşte bu şekilde senaryolar için, yani verileri gruplama için GROUP BY anahtar kelimesi kullanılır.
 
-SELECT rental_rate, MAX(length) 
-FROM film
+SELECT rental_rate, MAX(length) FROM film
 GROUP BY rental_rate;
-
 
 SELECT anahtar kelimesinde bulunan sütunların, GROUP BY anahtar kelimesi içerisinde bulunması gerekir.
 Özetle GROUP BY operatörü söz dizimi aşağıdaki gibidir ;
 
-SELECT <sütun_adı>, <sütun_adı>, ... (veya aggregate func)
-FROM <tablo_adı>
+SELECT <sütun_adı>, <sütun_adı>, ... (veya aggregate func) FROM <tablo_adı>
 GROUP BY <sütun_adı>, <sütun_adı>, ...
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 + HAVING operatörü ;
+
+SELECT rental_rate, COUNT(*) FROM film
+GROUP BY rental_rate
+HAVING COUNT(*) > 325;
+
+Bu operatör sayesinde gruplandırılmış verilere koşullar eklenebilir. 
+Koşul eklenmesi için akla ilk olarak WHERE operatörü gelir ancak WHERE operatörü ile satır bazlı koşullar verilebiliyor.
+HAVING operatörü ile ise grup bazlı koşullar verilebiliyor.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
++ ALIAS (AS) operatörü ;
+
+SELECT <sütun_adı> AS <geçici_ad> FROM <tablo_adı>;
+
+SELECT <sütun_adı>, <sütun_adı>... FROM <tablo_adı> AS <geçici_ad>;
+
+AS operatörü ile sorgular sonucu oluşturulan sanal tablo ve sütunlara geçici isimler verilebilir.
 
