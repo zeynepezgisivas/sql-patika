@@ -103,8 +103,30 @@ LIMIT 4;
 Yukarıdaki sorguda film tablosunda B ile başlayan filmler uzunluklarına göre sıralanırken, en uzun 6 film pass geçilip sonrasındaki 4 film sıralanır.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
-+ Aggregate Funcs: MIN, MAX, SUM, AVG ;
++ Aggregate Funcs: AVG, SUM, MAX, MIN ;
 
 Aggregate fonksiyonları ile "Toplam kaç adet müşterimiz var? Elimizde bulunan filmlerin ortalama uzunluğu nedir?" gibi sorulara veri kümelerimizden sonuçlar çıkararak cevap buluruz.
 Yani bu fonksiyonlar belirli veri kümelerinden tek bir sonuç çıkartırlar.
 
+SELECT AVG(length) 
+FROM film;
+
+AVG fonksiyonunu kullanılan sayısal değerlerden oluşan sütunun ortalama değerini alır.
+
+SELECT SUM(length) 
+FROM film;
+
+SUM fonksiyonunu kullanılan sayısal değerlerden oluşan sütunun toplam değerini alır.
+
+SELECT MAX(length) 
+FROM film;
+
+MAX fonksiyonunu kullanılan sayısal değerlerden oluşan sütunun en yüksek değerini alır.
+ 
+SELECT MIN(length) 
+FROM film; 
+ 
+MIN fonksiyonunu kullanılan sayısal değerlerden oluşan sütunun en düşük değerini alır.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
++GROUP BY 
